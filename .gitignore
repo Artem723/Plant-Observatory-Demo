@@ -1,0 +1,4 @@
+node_modules
+
+# connection string to Azure IoT hub
+connectionStrings.js

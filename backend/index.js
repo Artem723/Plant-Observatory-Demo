@@ -46,7 +46,7 @@ const processMessage = async (message) => {
   try {
     result = await client.index(elasticOptions);
   } catch (err) {
-
+    console.log(err);
   }
   console.log(`Status code:  ${result.statusCode}`);
 };
