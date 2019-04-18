@@ -1,6 +1,6 @@
 'use strict';
 
-const { connectionString, elasticHostURI } = require('../connectionStrings');
+const { connectionStringBackend, elasticHostURI } = require('../connectionStrings');
 
 // Using the Node.js SDK for Azure Event hubs:
 //   https://github.com/Azure/azure-event-hubs-node
@@ -54,7 +54,7 @@ const processMessage = async (message) => {
 // Connect to the partitions on the IoT Hub's Event Hubs-compatible endpoint.
 // This example only reads messages sent after this application started.
 let ehClient;
-EventHubClient.createFromIotHubConnectionString(connectionString).then((client) => {
+EventHubClient.createFromIotHubConnectionString(connectionStringBackend).then((client) => {
   console.log("Successfully created the EventHub Client from iothub connection string.");
   ehClient = client;
   return ehClient.getPartitionIds();
